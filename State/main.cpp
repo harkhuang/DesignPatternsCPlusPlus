@@ -32,6 +32,11 @@ public:
     void SetState(const std::shared_ptr<IWritingState>& state) { state_ = state; }
     void Type(std::string words) { state_->Write(words); }
 private:
+
+    /// <summary>
+    /// 共享指针用于 主类所使用的状态机
+    /// 用智能指针的好处就是 在用户层可以随意的new  不需要去管理指针资源
+    /// </summary>
     std::shared_ptr<IWritingState> state_;
 };
 

@@ -23,7 +23,7 @@ private:
 // 在在有工作发布的时候 会有对应的响应
 class IObserver {
 public:
-    virtual void OnJobPoed(const JobPost& job) = 0;
+    virtual void OnJobPosted(const JobPost& job) = 0;
 };
 
 // 通过继承基类方法   关联了modle类   在有件事情发生后

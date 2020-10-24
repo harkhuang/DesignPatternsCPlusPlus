@@ -4,9 +4,8 @@
 
 class President {
 public:
-
-
    // 在c11 中static 表示线程安全
+    // 不需要成员变量, 仅仅在获取句柄函数中返回这个变量即可
     static President& GetInstance() {
         static President instance;
         return instance;

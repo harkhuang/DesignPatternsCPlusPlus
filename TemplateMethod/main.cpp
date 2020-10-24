@@ -5,6 +5,7 @@ public:
     void Build() {
         Test();
         Lint();
+        // 集合装配
         Assemble();
         Deploy();
     }
@@ -28,7 +29,9 @@ class IosBuilder : public Builder {
     void Assemble() override { std::cout << "Assembling the ios build" << std::endl; }
     void Deploy() override { std::cout << "Deploying ios build to server" << std::endl; }
 };
+// 简单直接不需要太多关联 
 
+// 就是最简单的继承
 int main()
 {
     AndroidBuilder androidBuilder;

@@ -13,6 +13,9 @@ public:
     void Close() override { std::cout << "Closing the lab door" << std::endl; }
 };
 
+
+
+// 安全系统作为门的代理
 class Security {
 public:
     Security(IDoor& door): door_(door) {}
@@ -29,8 +32,18 @@ private:
 
 int main()
 {
+
+
+    // 实验室有个门
     LabDoor labDoor;
+
+
+    // 被安全系统封装
     Security securityDoor(labDoor);
+
+
+
+    // 通过安全系统 调用开门关门
     securityDoor.Open("invalid");
     securityDoor.Open("$ecr@t");
     securityDoor.Close();

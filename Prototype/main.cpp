@@ -11,16 +11,21 @@ private:
     std::string category_;
 };
 
+
+
+
+// 使用默认的拷贝构造
+// 使用默认的拷贝赋值
 int main()
 {
     Sheep jolly("Jolly");
     jolly.ShowInfo();
 
-    Sheep dolly(jolly); // copy constructor
+    Sheep dolly(jolly); // copy constructor 拷贝构造
     dolly.SetName("Dolly");
     dolly.ShowInfo();
 
-    Sheep doolly = jolly; // copy assignment
+    Sheep doolly = jolly; // copy assignment 拷贝赋值
     doolly.SetName("Doolly");
     doolly.ShowInfo();
 }
