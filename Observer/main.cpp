@@ -3,21 +3,15 @@
 #include <vector>
 #include <functional>
 
- // ----------------------------------------------------------------
- // 
-
-
-
-
 
 // 工作展示牌 非动词
 
 // 座位m和v的成员对象  为二者建立联系
 
-// dao层  可以这么理解
-class JobTable {
+// dao层  object  工作
+class JobPost {
 public:
-    JobShow(const std::string& title): title_(title) {}
+    JobPost(const std::string& title): title_(title) {}
     const std::string& GetTitle() const { return title_; }
 private:
     std::string title_;
@@ -25,12 +19,11 @@ private:
 
 
 
-
 // 抽离了求职者的共性
 // 在在有工作发布的时候 会有对应的响应
 class IObserver {
 public:
-    virtual void OnJobPoed(const JobShow& job) = 0;
+    virtual void OnJobPoed(const JobPost& job) = 0;
 };
 
 // 通过继承基类方法   关联了modle类   在有件事情发生后
@@ -45,9 +38,6 @@ private:
     std::string name_;
 };
 
-
-
-
 // 抽象了服务层的对象
 // 服务层对工作有几种操作,  可以添加工作
 class IObservable {
@@ -58,29 +48,16 @@ protected:
     virtual void Notify(const JobPost& jobPosting) = 0;
 };
 
-
-
-
-
-
-
-
 class JobPostings : public IObservable {
 public:
     void Attach(IObserver& observer) override {
         observers_.push_back(observer);
     }
-
-
-
     // 使得 m v  c
     void AddJob(const JobPost &jobPosting) override {
-
         // 添加工作后 我们做一次 通知方法
         Notify(jobPosting);
-
         // do other things .. 
-
     }
 private:
     void Notify(const JobPost &jobPosting) override {
