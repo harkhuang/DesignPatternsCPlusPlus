@@ -19,9 +19,9 @@ public:
 	}
 
 	void notify( Job* job) {
- 		for (auto i : v) {
- 			i->OnJobPosted(job);
- 		}
+ 		// for (auto i : v) {
+ 		// 	i->OnJobPosted(job);
+ 		// }
 	}
 
 	void Register(JobSeeker *seeker) {
